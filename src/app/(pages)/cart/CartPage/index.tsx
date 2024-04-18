@@ -18,6 +18,7 @@ import classes from './index.module.scss'
 export const CartPage: React.FC<{
   settings: Settings
   page: Page
+  disableBottomPadding: Boolean
 }> = props => {
   const { settings } = props
   const { productsPage } = settings || {}

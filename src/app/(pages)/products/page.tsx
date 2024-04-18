@@ -1,3 +1,4 @@
+import React from 'react'
 import { draftMode } from 'next/headers'
 
 import { Category, Page } from '../../../payload/payload-types'
@@ -9,8 +10,10 @@ import { HR } from '../../_components/HR'
 import Filters from './Filters'
 
 import classes from './index.module.scss'
-export default async function Products() {
+
+const Products = async () => {
   const { isEnabled: isDraftMode } = draftMode()
+
   let page: Page | null = null
   let categories: Category[] | null = null
 
@@ -22,16 +25,19 @@ export default async function Products() {
     })
 
     categories = await fetchDocs<Category>('categories')
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.log(error)
   }
+
   return (
     <div className={classes.container}>
       <Gutter className={classes.products}>
         <Filters categories={categories} />
-        <Blocks blocks={page.layout} disableTopPadding />
+        <Blocks blocks={page?.layout} disableTopPadding={true} />
       </Gutter>
       <HR />
     </div>
   )
 }
+
+export default Products
