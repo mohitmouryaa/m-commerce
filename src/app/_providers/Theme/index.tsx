@@ -46,10 +46,14 @@ export const ThemeProvider: React.FC<{ children?: React.ReactNode }> = ({ childr
     }
 
     document.documentElement.setAttribute('data-theme', defaultTheme)
-    setThemeState(themeToSet)
+    setThemeState(defaultTheme)
   }, [])
 
-  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+  return (
+    <ThemeContext.Provider value={{ theme: defaultTheme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
 }
 
 export const useTheme = (): ThemeContextType => useContext(ThemeContext)

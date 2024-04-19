@@ -160,7 +160,7 @@ input Page_Hero_Links_Link_Icon_updatedAt_operator {
   not_equals: DateTime
   greater_than_equal: DateTime
   greater_than: DateTime
-  less_than_equal: DateTime;;
+  less_than_equal: DateTime
   less_than: DateTime
   like: DateTime
   exists: Boolean

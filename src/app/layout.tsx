@@ -1,4 +1,5 @@
 import React from 'react'
+// import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import { Jost } from 'next/font/google'
 
@@ -34,6 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {/* @ts-expect-error */}
           <Footer />
         </Providers>
+        {/* <SpeedInsights /> */}
       </body>
     </html>
   )
